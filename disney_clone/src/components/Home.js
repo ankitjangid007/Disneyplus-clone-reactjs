@@ -20,7 +20,6 @@ const Home = (props) => {
   let trending = [];
 
   useEffect(() => {
-    console.log("hello");
     db.collection("movies").onSnapshot((snapshot) => {
       snapshot.docs.map((doc) => {
         console.log(recommends);
@@ -71,7 +70,7 @@ const Container = styled.main`
   min-height: calc(100vh - 250px);
   overflow-x: hidden;
   display: block;
-  top: 72px;
+  top: 70px;
   padding: 0 calc(3.5vw + 5px);
   &:after {
     background: url("/images/home-background.png") center center / cover

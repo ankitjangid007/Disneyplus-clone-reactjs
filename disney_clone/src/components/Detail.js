@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import db from '../firebase'
 
 const Detail = (props) => {
@@ -26,6 +26,11 @@ const Detail = (props) => {
 
     return (
         <Container>
+            {/* <Back>
+              <Link to='/home'>
+                <img src='/images/back.png' alt='back' />
+              </Link>
+            </Back> */}
             <Background>
                 <img src={detailData.backgroundImg} alt={detailData.title} />
             </Background>
@@ -68,6 +73,38 @@ const Container = styled.div`
     padding: 0 calc(3.5vw + 5px);
 `;
 
+const Back = styled.div`
+  position: fixed;
+  height: 35px;
+  width: 40px;
+  border-radius: 0 0 50px;
+  background-color: slategray;
+  cursor: pointer;
+  left: 0;
+
+  img {
+    align-items: center;
+    justify-content: center;
+    padding-left: 1px;
+    height: 28px;
+    width: 28px;
+  }
+
+  &:hover {
+    background-color: #f9f9f9;
+  }
+
+  @media (max-width: 768px) {
+    height: 27px;
+    width: 30px;
+
+    img {
+      height: 22px;
+      width: 22px;
+    }
+  }
+`;
+
 const Background = styled.div`
     left: 0px;
     opacity: 0.8;
@@ -81,7 +118,7 @@ const Background = styled.div`
         height: 100vh;
 
         @media (max-width: 768px) {
-            width: initial;
+            /* width: -webkit-fill-available; */
         }
     }
 `;
@@ -142,8 +179,8 @@ const Player = styled.button`
     }
 
     @media (max-width: 768px) {
-        height: 45px;
-        padding: 0px 12px;
+        height: 40px;
+        padding: 0px 6px;
         font-size: 12px;
         margin: 0px 10px 0px 0px;
         
@@ -185,6 +222,11 @@ const AddList = styled.div`
       width: 2px;
     }
   }
+
+  @media (max-width: 768px) {
+    height: 40px;
+    width: 40px;
+  }
 `;
 
 const GroupWatch = styled.div`
@@ -205,6 +247,12 @@ const GroupWatch = styled.div`
       width: 100%;
     }
   }
+
+  @media (max-width: 768px) {
+    height: 42px;
+    width: 42px;
+  }
+
 `;
 
 const SubTitle = styled.div`
